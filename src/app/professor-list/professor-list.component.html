@@ -32,9 +32,9 @@
         <td>{{ p.phone }}</td>
 
         <td>
-          <a [routerLink]="['/professor-details/', p.professor_id]"> Detail </a>
-          <a [routerLink]="['/professor-update/', p.professor_id]"> Edit </a>
-          <a [routerLink]="" (click)="delete(p.professor_id)"> Delete </a>
+          <a [routerLink]="['/professor-details/', p.professor_id]"> Detalles |</a>
+          <a [routerLink]="['/professor-update/', p.professor_id]"> Editar |</a>
+          <a [routerLink]="" (click)="delete(p.professor_id)"> Borrar </a>
         </td>
       </tr>
 
