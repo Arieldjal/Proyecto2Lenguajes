@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Listado de cursos</h2>
+  
+    <div class="text-left" style="margin-bottom: 3%;">
+      <button class="btn btn-primary" (click)="add()">
+        Agregar
+      </button>
+    </div>
+  
+    <table class='table' *ngIf="courses">
+      <thead>
+        <tr>
+          <th>Iniciales</th>
+          <th>Nombre</th>
+          <th>Estado</th>
+          <th>Modalidad</th>
+          <th>Opciones</th>
+        </tr>
+  
+      </thead>
+      <tbody>
+  
+        <tr *ngFor="let c of courses; let i=index;">
+  
+          <td>{{ c.initials  }}</td>
+          <td>{{ c.name  }}</td>
+          <td *ngIf="c.active">Activo</td>
+          <td *ngIf="!c.active">Inactivo</td>
+          <td>{{ c.modality  }}</td>
+          <td>
+            <a [routerLink]="['/course-details/', c.courseId]"> Detalles </a>
+            <a [routerLink]="['/course-update/',c.courseId]"> Editar </a>
+            <a [routerLink]="" (click)="delete(c.courseId)"> Eliminar </a>
+  
+          </td>
+        </tr>
+  
+      </tbody>
+    </table>
+  </div>
+  
