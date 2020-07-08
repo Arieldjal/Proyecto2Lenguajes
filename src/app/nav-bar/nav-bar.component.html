@@ -1,0 +1,148 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand"  routerLink="/home">UCR</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"
+    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="mainNavbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/professor-registry">Profesores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/courses-registry">Cursos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/student-registry">Estudiantes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/profile">Mi Perfil</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-success my-2 my-sm-0" (click)="openRegisterModal(registerTemplate)" type="button">Registrarse</button>
+      <button class="btn btn-light my-2 my-sm-0" (click)="openLoginModal(loginTemplate)" type="button">Ingresar</button>
+    </form>
+  </div>
+</nav>
+
+<!--Modal Login-->
+<ng-template #loginTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">INGRESAR</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalLogin.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" #formDir="ngForm">
+
+      <div class="form-group row">
+        <label class=" control-label col-md-12" for="email">Correo Electrónico</label>
+        <div class="col-md-8">
+          <input class="form-control" type="text" formControlName="email">
+        </div>
+        <span class="text-warning" *ngIf="loginForm.hasError('required', 'email') && formDir.submitted">
+          Correo requerido
+        </span>
+      </div>
+
+      <div class="form-group row">
+        <label class=" control-label col-md-12" for="password">Contraseña</label>
+        <div class="col-md-8">
+          <input class="form-control" type="password" formControlName="password">
+        </div>
+        <span class="text-warning" *ngIf="loginForm.hasError('required', 'password') && formDir.submitted">
+          Contraseña requerida
+        </span>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+        <button class="btn btn-danger" (click)="cancelLogin()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<!--Modal Register-->
+<ng-template #registerTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">REGISTRARSE</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRegister.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="registerForm" (ngSubmit)="register()" #formDir="ngForm">
+
+      <div class="form-group row">
+        <label class=" control-label col-md-12" for="emailRegister">Correo Electrónico</label>
+        <div class="col-md-8">
+          <input class="form-control" type="text" formControlName="emailRegister">
+        </div>
+        <span class="text-warning" *ngIf="registerForm.hasError('required', 'emailRegister') && formDir.submitted">
+          Correo requerido
+        </span>
+      </div>
+
+      <div class="form-group row">
+        <label class=" control-label col-md-12" for="passwordRegister">Contraseña</label>
+        <div class="col-md-8">
+          <input class="form-control" type="password" formControlName="passwordRegister">
+        </div>
+        <span class="text-warning" *ngIf="registerForm.hasError('required', 'passwordRegister') && formDir.submitted">
+          Contraseña requerida
+        </span>
+      </div>
+
+      <div class="form-group row">
+        <label class=" control-label col-md-12" for="nameRegister">Nombre</label>
+        <div class="col-md-8">
+          <input class="form-control" type="text" formControlName="nameRegister">
+        </div>
+        <span class="text-warning" *ngIf="registerForm.hasError('required', 'nameRegister') && formDir.submitted">
+          Nombre requerido
+        </span>
+
+        <span class="text-warning" *ngIf="registerForm.hasError('pattern', 'nameRegister') && formDir.submitted">
+          No números/espacios
+      </span>
+      </div>
+
+      <div class="form-group row">
+        <label class=" control-label col-md-12" for="last_nameRegister">Apellido</label>
+        <div class="col-md-8">
+          <input class="form-control" type="text" formControlName="last_nameRegister">
+        </div>
+        <span class="text-warning" *ngIf="registerForm.hasError('required', 'last_nameRegister') && formDir.submitted">
+          Apellido requerido
+        </span>
+
+        <span class="text-warning" *ngIf="registerForm.hasError('pattern', 'last_nameRegister') && formDir.submitted">
+          No números/espacios
+      </span>
+      </div>
+
+      <div class="form-group row">
+        <label class=" control-label col-md-12" for="phoneRegister">Teléfono</label>
+        <div class="col-md-8">
+          <input class="form-control" type="text" formControlName="phoneRegister">
+        </div>
+        <span class="text-warning" *ngIf="registerForm.hasError('required', 'phoneRegister') && formDir.submitted">
+          Teléfono requerido
+        </span>
+
+        <span class="text-warning" *ngIf="registerForm.hasError('pattern', 'phoneRegister') && formDir.submitted">
+          Se necesitan 8 digitos
+      </span>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+        <button class="btn btn-danger" (click)="cancelRegister()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

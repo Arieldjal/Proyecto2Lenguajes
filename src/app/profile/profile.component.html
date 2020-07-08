@@ -1,0 +1,106 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                        alt="" />
+                    <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                        <input type="file" name="file" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h1>
+                        Nombre del usuario
+                    </h1>
+                    <br>
+                    <br>
+                    <br>
+                    
+                    <mat-tab-group>
+                        <mat-tab label="Perfil">
+                            <div class="tab-content profile-tab">
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>ID Usuario</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>id usuario</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Nombre</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>nombre</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Apellido</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>apellido</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Correo</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>correo@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Teléfono</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>88888888</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Provincia</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Cartago</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Intereses</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>intereses</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Cuenta">
+                            <div class="tab-content profile-tab">
+                                <div class="col-md-8">
+
+                                </div>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-success my-2 my-sm-0" (click)="editProfile()" type="button">Editar
+                    Perfil</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,25 @@
+<h2>Lista de estudiantes</h2>
+<br>
+<br>
+<br>
+<kendo-grid [kendoGridBinding]="gridData" 
+            [filterable]="true" 
+            [groupable]="false" 
+            [sortable]="{
+                allowUnsort: true,
+                mode: 'multiple'
+            }" 
+            [pageSize]="10" 
+            [pageable]="true" 
+            [height]="510">
+    <kendo-grid-column field="student_id" title="Id" [width]="100"></kendo-grid-column>
+    <kendo-grid-column field="name" title="Nombre" [width]="120"></kendo-grid-column>
+    <kendo-grid-column field="last_name" title="Apellido" [width]="120"></kendo-grid-column>
+    <kendo-grid-column field="phone" title="Teléfono" [width]="120"></kendo-grid-column>
+    <kendo-grid-column field="admited" title="Estado" [width]="120"></kendo-grid-column>
+    <kendo-grid-command-column title="Acciones" width="120">
+        <ng-template kendoGridCellTemplate let-isNew="isNew">
+            <button kendoGridEditCommand [primary]="true">Edit</button>
+        </ng-template>
+    </kendo-grid-command-column>
+</kendo-grid>
