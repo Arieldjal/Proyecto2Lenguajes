@@ -3,16 +3,18 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 
-const endpoint = '';
+const endpoint = 'http://localhost:8080/api/professor';
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-type' : 'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestService {
 
-<<<<<<< Updated upstream
-  constructor() { }
-=======
   constructor(private http: HttpClient) { 
   
   }
@@ -117,5 +119,4 @@ export class RestService {
     }
   }
 
->>>>>>> Stashed changes
 }

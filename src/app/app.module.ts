@@ -1,15 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-<<<<<<< Updated upstream
-=======
 import { ProfessorListComponent } from './professor-list/professor-list.component';
 import { ProfessorDetailsComponent } from './professor-details/professor-details.component';
 import { ProfessorUpdateComponent } from './professor-update/professor-update.component';
@@ -28,7 +26,6 @@ import { CourseAddComponent } from './course-add/course-add.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
->>>>>>> Stashed changes
 
 const appRoutes: Routes = [
   {
@@ -42,8 +39,6 @@ const appRoutes: Routes = [
     data: { title: 'Login'}
   },
   {
-<<<<<<< Updated upstream
-=======
     path: 'profile',
     component: ProfileComponent,
     data: { title: 'Profile'}
@@ -94,7 +89,6 @@ const appRoutes: Routes = [
     data: { title: 'Student Update' }
   },
   {
->>>>>>> Stashed changes
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -104,9 +98,6 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< Updated upstream
-    LoginComponent
-=======
     LoginComponent,
     ProfessorListComponent,
     ProfessorDetailsComponent,
@@ -120,7 +111,6 @@ const appRoutes: Routes = [
     CourseUpdateComponent,
     CourseAddComponent,
     StudentListComponent
->>>>>>> Stashed changes
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -131,9 +121,10 @@ const appRoutes: Routes = [
     ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
     GridModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
