@@ -1,0 +1,22 @@
+<div class="p-3 mb-2 bg-primary text-white">
+    <div class="col-md-6 offset-md-4">
+        <div *ngIf="course" class="courses">
+            <div class="containerBox">
+                <h2>{{course.initials | uppercase}}</h2>
+            </div>
+            <div><strong>Nombre: </strong>{{course.name}}</div>
+            <div><strong>Modalidad: </strong>{{course.modality}}</div>
+            <div><strong>Description: </strong>
+                <p>{{course.description}}</p>
+            </div>
+            <div *ngIf="course.active"><strong>Estado: </strong>Activo</div>
+            <div *ngIf="!course.active"><strong>Estado: </strong>Inactivo</div>
+            <div>
+                <button class="btn bg-light" routerLink="/course-update/{{course.courseId}}">
+                    Editar
+                </button>
+                <button class="btn btn-danger" (click)="cancel()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

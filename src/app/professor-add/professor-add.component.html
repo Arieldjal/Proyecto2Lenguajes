@@ -1,0 +1,91 @@
+<div class="p-3 mb-2 bg-primary text-white">
+    <div class="col-md-6 offset-md-3">
+        <div class="containerBox">
+            <h2>Agregar Profesor</h2>
+        </div>
+    </div>
+    <form [formGroup]="professorForm" (ngSubmit)="addProfessor()" #formDir="ngForm">
+
+        <div class="form-group row">
+            <label class="control-label col-md-6 offset-md-3" for="name">Nombre</label>
+            <div class="col-md-6 offset-md-3">
+                <input class="form-control" type="text" formControlName="name">
+            </div>
+            <span class="text-warning" *ngIf="professorForm.hasError('required', 'name') && formDir.submitted">
+                Nombre requerido
+            </span>
+
+            <span class="text-warning" *ngIf="professorForm.hasError('pattern', 'name') && formDir.submitted">
+                No se permiten números o espacios
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-6 offset-md-3" for="last_name">Apellido</label>
+            <div class="col-md-6 offset-md-3">
+                <input class="form-control" type="text" formControlName="last_name">
+            </div>
+            <span class="text-warning" *ngIf="professorForm.hasError('required', 'last_name') && formDir.submitted">
+                Apellido requerido
+            </span>
+
+            <span class="text-warning" *ngIf="professorForm.hasError('pattern', 'last_name') && formDir.submitted">
+                No se permiten números o espacios
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-6 offset-md-3" for="email">Correo</label>
+            <div class="col-md-6 offset-md-3">
+                <input class="form-control" type="text" formControlName="email">
+            </div>
+            <span class="text-warning" *ngIf="professorForm.hasError('required', 'email') && formDir.submitted">
+                Correo requerido
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-6 offset-md-3" for="phone">Teléfono</label>
+            <div class="col-md-6 offset-md-3">
+                <input class="form-control" type="text" formControlName="phone">
+            </div>
+            <span class="text-warning" *ngIf="professorForm.hasError('required', 'phone') && formDir.submitted">
+                Teléfono requerido
+            </span>
+
+            <span class="text-warning" *ngIf="professorForm.hasError('pattern', 'phone') && formDir.submitted">
+                Se necesitan 8 digitos
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-6 offset-md-3" for="password">Contraseña</label>
+            <div class="col-md-6 offset-md-3">
+                <input class="form-control" type="password" formControlName="password">
+            </div>
+            <span class="text-warning" *ngIf="professorForm.hasError('required', 'password') && formDir.submitted">
+                Contraseña requerida
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-6 offset-md-3" for="admin">Permisos</label>
+            <div class="col-md-6 offset-md-3">
+                <select class="form-control" type="text" formControlName="admin">
+                    <option value=false>No es administrador</option>
+                    <option value=true>Es administrador</option>
+                </select>
+            </div>
+            <span class="text-warning" *ngIf="professorForm.hasError('required', 'admin') && formDir.submitted">
+                Permisos no seleccionados
+            </span>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3 text-center">
+                <button type="submit" class="btn bg-light">Guardar</button>
+                <button class="btn btn-danger" (click)="cancel()">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</div>

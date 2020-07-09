@@ -1,0 +1,29 @@
+<div class="p-3 mb-2 bg-primary text-white">
+        <div class="col-md-6 offset-md-3">
+            <div *ngIf="professor" class="professors">
+                <div class="containerBox">
+                    <h2>{{professor.name | uppercase}} Detalles</h2>
+                </div>
+                <form class="form-group">
+                    <div class="form-group row">
+                        <label class="control-label col-md-12"><strong>Apellido:</strong>
+                            {{professor.last_name}}</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-12"><strong>Teléfono:</strong> {{professor.phone}}</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-12"><strong>Correo:</strong> {{professor.email}}</label>
+                    </div>
+                    <div *ngIf="professor.admin"><strong>Permisos: </strong>Administrador</div>
+                    <div *ngIf="!professor.admin"><strong>Permisos: </strong>No administrador</div>
+                </form>
+
+                <div class="form-group">
+                    <button class="btn bg-light"
+                        routerLink="/professor-update/{{professor.professor_id}}">Editar</button>
+                    <button class="btn btn-danger" (click)="cancel()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
