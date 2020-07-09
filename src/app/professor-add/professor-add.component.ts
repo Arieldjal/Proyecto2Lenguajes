@@ -24,6 +24,7 @@ export class ProfessorAddComponent implements OnInit {
         Validators.required,
         Validators.pattern('^[0-9]{8,8}$')
       ]),
+      password: ['', [Validators.required]],
       admin: ['', [Validators.required]]
     })
   }
@@ -32,7 +33,7 @@ export class ProfessorAddComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/professor-registry']);
   }
 
   addProfessor() {
@@ -42,7 +43,7 @@ export class ProfessorAddComponent implements OnInit {
     }
 
     this.rest.addProfessor(this.professorForm.value).subscribe((result) => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/professor-registry']);
     }, (err) => {
       console.log(err);
     });

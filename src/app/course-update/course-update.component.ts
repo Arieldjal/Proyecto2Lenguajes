@@ -42,14 +42,14 @@ updateCourse() {
   }
 
   this.rest.updateCourse(this.courseData.courseId,this.courseData).subscribe((result) => {
-    this.router.navigate(['/courses']);
+    this.router.navigate(['/courses-registry']);
   }, (err) => {
     console.log(err);
   });
 }
 
 cancel() {
-  this.router.navigate(['/courses']);
+  this.router.navigate(['/courses-registry']);
 }
 
 

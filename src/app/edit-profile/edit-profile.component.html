@@ -1,0 +1,112 @@
+<div class="p-3 mb-2 bg-primary text-white">
+    <div class="col-md-6 offset-md-3">
+        <div class="containerBox">
+            <h2>Editar Perfil</h2>
+        </div>
+    </div>
+    <form [formGroup]="profileForm" (ngSubmit)="updateProfile()" #formDir="ngForm">
+
+        <div class="form-group row">
+            <div class="col-md-6 offset-md-3">
+                <input class="form-control" type="text" type="hidden" formControlName="app_User_id" [(ngModel)]="userData.app_User">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-6 offset-md-3" for="name">Nombre</label>
+            <div class="col-md-6 offset-md-3">
+                <input class="form-control" type="text" formControlName="name" [(ngModel)]="userData.name">
+            </div>
+            <span class="text-warning" *ngIf="profileForm.hasError('required', 'name') && formDir.submitted">
+                Nombre requerido
+            </span>
+
+            <span class="text-warning" *ngIf="profileForm.hasError('pattern', 'name') && formDir.submitted">
+                No se permiten números o espacios
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-6 offset-md-3" for="last_name">Apellido</label>
+            <div class="col-md-6 offset-md-3">
+                <input class="form-control" type="text" formControlName="last_name" [(ngModel)]="userData.last_name">
+            </div>
+            <span class="text-warning" *ngIf="profileForm.hasError('required', 'last_name') && formDir.submitted">
+                Apellido requerido
+            </span>
+
+            <span class="text-warning" *ngIf="profileForm.hasError('pattern', 'last_name') && formDir.submitted">
+                No se permiten números o espacios
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-6 offset-md-3" for="phone">Teléfono</label>
+            <div class="col-md-6 offset-md-3">
+                <input class="form-control" type="text" formControlName="phone" [(ngModel)]="userData.phone">
+            </div>
+            <span class="text-warning" *ngIf="profileForm.hasError('required', 'phone') && formDir.submitted">
+                Teléfono requerido
+            </span>
+
+            <span class="text-warning" *ngIf="profileForm.hasError('pattern', 'phone') && formDir.submitted">
+                Se necesitan 8 digitos
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-6 offset-md-3" for="password">Contraseña</label>
+            <div class="col-md-6 offset-md-3">
+                <input class="form-control" type="password" formControlName="password" [(ngModel)]="userData.password">
+            </div>
+            <span class="text-warning" *ngIf="profileForm.hasError('required', 'password') && formDir.submitted">
+                Contraseña requerida
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-6 offset-md-3" for="province">Provincia</label>
+            <div class="col-md-6 offset-md-3">
+                <select class="form-control" [(ngModel)]="userData.province" formControlName="province">
+                    <option value="" disabled selected>---Select an option---</option>
+                    <option *ngFor="let p of provinces" [value]="p.province_id">{{p.name}}</option>
+                  </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-6 offset-md-3" for="canton">Canton</label>
+            <div class="col-md-6 offset-md-3">
+                <select class="form-control" [(ngModel)]="userData.canton" formControlName="canton" >
+                    <option value="" disabled selected>---Select an option---</option>
+                    <option *ngFor="let c of cantons" [value]="c.canton_id">{{c.name}}</option>
+                  </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-6 offset-md-3" for="district">Distrito</label>
+            <div class="col-md-6 offset-md-3">
+                <select class="form-control" [(ngModel)]="userData.district" formControlName="district">
+                    <option value="" disabled selected>---Select an option---</option>
+                    <option *ngFor="let d of districts" [value]="d.district_id">{{d.name}}</option>
+                  </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-md-6 offset-md-3" for="interest">Intereses</label>
+            <div class="col-md-6 offset-md-3">
+                <textarea class="form-control" [(ngModel)]="userData.interest" formControlName="interest" ></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3 text-center">
+                <button type="submit" class="btn bg-light">Guardar</button>
+                <button class="btn btn-danger" (click)="cancel()">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</div>
+

@@ -1,5 +1,9 @@
 <div class="p-3 mb-2 bg-primary text-white">
-  <h2>Registro de Profesores</h2>
+  <div class="col-md-4 offset-md-4">
+    <div class="containerBox">
+      <h2>Registro de Profesores</h2>
+    </div>
+  </div>
 
   <div>
     <button class="btn bg-light" (click)="add()">
@@ -16,6 +20,7 @@
         <th>Nombre</th>
         <th>Apellido</th>
         <th>Correo Electrónico</th>
+        <th>Permisos</th>
         <th>Teléfono</th>
         <th>Acciones</th>
       </tr>
@@ -29,6 +34,8 @@
         <td>{{ p.name }}</td>
         <td>{{ p.last_name }}</td>
         <td>{{ p.email }}</td>
+        <td *ngIf="p.admin">Administrador</td>
+        <td *ngIf="!p.admin">No administrador</td>
         <td>{{ p.phone }}</td>
 
         <td>

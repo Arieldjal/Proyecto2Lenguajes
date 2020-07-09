@@ -17,13 +17,6 @@
             </div>
             <div class="col-md-6">
                 <div class="profile-head">
-                    <h1>
-                        Nombre del usuario
-                    </h1>
-                    <br>
-                    <br>
-                    <br>
-                    
                     <mat-tab-group>
                         <mat-tab label="Perfil">
                             <div class="tab-content profile-tab">
@@ -33,7 +26,7 @@
                                             <label>ID Usuario</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>id usuario</p>
+                                            <p>{{ user.app_User }}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -41,7 +34,7 @@
                                             <label>Nombre</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>nombre</p>
+                                            <p>{{ user.name }}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -49,7 +42,7 @@
                                             <label>Apellido</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>apellido</p>
+                                            <p>{{ user.last_name }}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -57,7 +50,7 @@
                                             <label>Correo</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>correo@gmail.com</p>
+                                            <p>{{ user.email }}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -65,7 +58,7 @@
                                             <label>Teléfono</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>88888888</p>
+                                            <p>{{ user.phone }}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -73,7 +66,23 @@
                                             <label>Provincia</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>Cartago</p>
+                                            <p>{{ user.province }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Canton</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{ user.canton }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Distrito</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{ user.district }}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -81,7 +90,7 @@
                                             <label>Intereses</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>intereses</p>
+                                            <p>{{ user.interest }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -90,7 +99,8 @@
                         <mat-tab label="Cuenta">
                             <div class="tab-content profile-tab">
                                 <div class="col-md-8">
-
+                                    <button class="btn btn-success my-2 my-sm-0" (click)="disableUser(user.app_User)" type="button">Darme de Baja
+                                    </button>
                                 </div>
                             </div>
                         </mat-tab>
@@ -98,8 +108,7 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <button class="btn btn-success my-2 my-sm-0" (click)="editProfile()" type="button">Editar
-                    Perfil</button>
+                <button class="btn btn-success my-2 my-sm-0" (click)="editProfile()" type="button">Editar Perfil</button>
             </div>
         </div>
     </form>

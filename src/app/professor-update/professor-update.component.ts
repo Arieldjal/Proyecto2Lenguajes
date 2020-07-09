@@ -13,7 +13,7 @@ export class ProfessorUpdateComponent implements OnInit {
   professorForm: FormGroup;
   errorMessage: any;
 
-  @Input() professorData:any = { professor_id: 0, name: '', last_name: '', phone: '' };
+  @Input() professorData:any = { professor_id: 0, name: '', last_name: '', phone: '', admin: '' };
 
   constructor(private fb: FormBuilder, private route: ActivatedRoute,
     private rest: RestService, private router: Router) {
@@ -25,7 +25,8 @@ export class ProfessorUpdateComponent implements OnInit {
       phone: new FormControl('', [
         Validators.required,
         Validators.pattern('^[0-9]{8,8}$')
-      ])
+      ]),
+      admin: ['', [Validators.required]]
     })
 
   }
@@ -38,7 +39,7 @@ export class ProfessorUpdateComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/professor-registry']);
   }
 
   updateProfessor() {
@@ -48,7 +49,7 @@ export class ProfessorUpdateComponent implements OnInit {
     }
 
     this.rest.updateStudent(this.professorForm.value).subscribe((result) => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/professor-registry']);
     }, (err) => {
       console.log(err);
     });

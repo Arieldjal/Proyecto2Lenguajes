@@ -1,25 +1,24 @@
-<h2>Lista de estudiantes</h2>
-<br>
-<br>
-<br>
-<kendo-grid [kendoGridBinding]="gridData" 
-            [filterable]="true" 
-            [groupable]="false" 
-            [sortable]="{
+<div class="p-3 mb-2 bg-primary text-white">
+    <div class="col-md-4 offset-md-4">
+        <div class="containerBox">
+            <h2>Registro de Estudiantes</h2>
+        </div>
+    </div>
+
+    <kendo-grid [kendoGridBinding]="gridData" [filterable]="true" [groupable]="false" [sortable]="{
                 allowUnsort: true,
                 mode: 'multiple'
-            }" 
-            [pageSize]="10" 
-            [pageable]="true" 
-            [height]="510">
-    <kendo-grid-column field="student_id" title="Id" [width]="100"></kendo-grid-column>
-    <kendo-grid-column field="name" title="Nombre" [width]="120"></kendo-grid-column>
-    <kendo-grid-column field="last_name" title="Apellido" [width]="120"></kendo-grid-column>
-    <kendo-grid-column field="phone" title="Teléfono" [width]="120"></kendo-grid-column>
-    <kendo-grid-column field="admited" title="Estado" [width]="120"></kendo-grid-column>
-    <kendo-grid-command-column title="Acciones" width="120">
-        <ng-template kendoGridCellTemplate let-isNew="isNew">
-            <button kendoGridEditCommand [primary]="true">Edit</button>
-        </ng-template>
-    </kendo-grid-command-column>
-</kendo-grid>
+            }" [pageSize]="10" [pageable]="true" [height]="510">
+        <kendo-grid-column field="student_id" title="Id" [width]="100"></kendo-grid-column>
+        <kendo-grid-column field="app_user.name" title="Nombre" [width]="120"></kendo-grid-column>
+        <kendo-grid-column field="app_user.last_name" title="Apellido" [width]="120"></kendo-grid-column>
+        <kendo-grid-column field="app_user.phone" title="Teléfono" [width]="120"></kendo-grid-column>
+        <kendo-grid-column field="admited" title="Estado" [width]="120"></kendo-grid-column>
+        <kendo-grid-command-column title="Acciones" width="120">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <a [routerLink]="" (click)="accept(dataItem.student_id)"> Aceptar </a>
+                <a [routerLink]="" (click)="deny(dataItem.student_id)"> Rechazar </a>
+            </ng-template>
+        </kendo-grid-command-column>
+    </kendo-grid>
+</div>

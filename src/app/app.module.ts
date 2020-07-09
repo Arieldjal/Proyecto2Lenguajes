@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +27,7 @@ import { CourseUpdateComponent } from './course-update/course-update.component';
 import { CourseAddComponent } from './course-add/course-add.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 const appRoutes: Routes = [
@@ -44,9 +47,14 @@ const appRoutes: Routes = [
     data: { title: 'Profile'}
   },
   {
+    path: 'edit-profile',
+    component: EditProfileComponent,
+    data: { title: 'Profile Edit'}
+  },
+  {
     path: 'student-registry',
-    component: ProfessorListComponent,
-    data: { title: 'Professor Registry'}
+    component: StudentListComponent,
+    data: { title: 'Student Registry'}
   },
   {
     path: 'professor-registry',
@@ -89,6 +97,11 @@ const appRoutes: Routes = [
     data: { title: 'Student Update' }
   },
   {
+    path: 'nav-bar',
+    component: NavBarComponent,
+    data: { title: 'Nav Bar'}
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -110,7 +123,8 @@ const appRoutes: Routes = [
     CourseDetailsComponent,
     CourseUpdateComponent,
     CourseAddComponent,
-    StudentListComponent
+    StudentListComponent,
+    EditProfileComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -125,6 +139,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatTabsModule,
     NgbModule,
+    MatTooltipModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

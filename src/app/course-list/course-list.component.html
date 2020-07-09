@@ -1,42 +1,46 @@
 <div class="p-3 mb-2 bg-primary text-white">
-    <h2>Registro de Cursos</h2>
-  
-    <div>
-      <button class="btn bg-light" (click)="add()">
-        Agregar
-      </button>
-      <br>
-      <br>
+  <div class="col-md-4 offset-md-4">
+    <div class="containerBox">
+      <h2>Registro de Cursos</h2>
     </div>
-  
-    <table class='table table-striped table-dark' *ngIf="courses">
-      <thead>
-        <tr>
-          <th>Iniciales</th>
-          <th>Nombre</th>
-          <th>Estado</th>
-          <th>Modalidad</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-  
-      <tbody>
-  
-        <tr *ngFor="let c of courses; let i=index;">
-  
-          <td>{{ c.initials }}</td>
-          <td>{{ c.name }}</td>
-          <td *ngIf="c.active">Activo</td>
-          <td *ngIf="!c.active">Inactivo</td>
-          <td>{{ c.modality  }}</td>
-  
-          <td>
-            <a [routerLink]="['/course-details/', c.courseId]"> Detalles | </a>
-            <a [routerLink]="['/course-update/',c.courseId]"> Editar </a>
-            <a [routerLink]="" (click)="delete(c.courseId)"> Eliminar </a>
-          </td>
-        </tr>
-  
-      </tbody>
-    </table>
   </div>
+
+  <div>
+    <button class="btn bg-light" (click)="add()">
+      Agregar
+    </button>
+    <br>
+    <br>
+  </div>
+
+  <table class='table table-striped table-dark' *ngIf="courses">
+    <thead>
+      <tr>
+        <th>Iniciales</th>
+        <th>Nombre</th>
+        <th>Estado</th>
+        <th>Modalidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let c of courses; let i=index;">
+
+        <td>{{ c.initials }}</td>
+        <td>{{ c.name }}</td>
+        <td *ngIf="c.active">Activo</td>
+        <td *ngIf="!c.active">Inactivo</td>
+        <td>{{ c.modality  }}</td>
+
+        <td>
+          <a [routerLink]="['/course-details/', c.courseId]"> Detalles |</a>
+          <a [routerLink]="['/course-update/',c.courseId]"> Editar |</a>
+          <a [routerLink]="" (click)="delete(c.courseId)"> Eliminar </a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

@@ -30,21 +30,24 @@ export class CourseAddComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  cancel() {
+    this.router.navigate(['/courses-registry']);
+  }
+
   addCourse() {
     if (!this.courseForm.valid) {
       return;
     }
 
     this.rest.addCourse(this.courseForm.value).subscribe((result) => {
-      this.router.navigate(['/courses']);
+      this.router.navigate(['/courses-registry']);
     }, (err) => {
       console.log(err);
     });
   }
 
-  cancel() {
-    this.router.navigate(['/courses']);
-  }
+  
 
 
   // get id() { return this.courseForm.get('studentId'); }

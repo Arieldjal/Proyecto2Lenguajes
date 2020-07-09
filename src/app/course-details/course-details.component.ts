@@ -20,7 +20,7 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/courses']);
+    this.router.navigate(['/courses-registry']);
   }
 
 }

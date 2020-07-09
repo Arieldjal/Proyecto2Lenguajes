@@ -1,8 +1,12 @@
-<div class="container">
-    <h2>Agregar un nuevo curso</h2>
+<div class="p-3 mb-2 bg-primary text-white">
+    <div class="col-md-6 offset-md-3">
+        <div class="containerBox">
+            <h2>Agregar un nuevo curso</h2>
+        </div>
+    </div>
     <form [formGroup]="courseForm" (ngSubmit)="addCourse()" #formDir="ngForm">
         <div class="form-group row">
-            <label class=" control-label col-md-6 offset-md-3" for="initials">Siglas</label>
+            <label class="control-label col-md-6 offset-md-3" for="initials">Siglas</label>
             <div class="col-md-6 offset-md-3">
                 <input class="form-control" type="text" formControlName="initials">
             </div>
@@ -49,8 +53,8 @@
 
         <div class="form-group row">
             <div class="col-md-6 offset-md-3 text-center">
-                <button class="btn btn-light mr-2" (click)="cancel()">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Agregar</button>
+                <button type="submit" class="btn bg-light">Agregar</button>
+                <button class="btn btn-danger" (click)="cancel()">Cancelar</button>
             </div>
         </div>
     </form>

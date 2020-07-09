@@ -21,7 +21,7 @@ export class ProfessorDetailsComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/professor-registry']);
   }
 
 }
